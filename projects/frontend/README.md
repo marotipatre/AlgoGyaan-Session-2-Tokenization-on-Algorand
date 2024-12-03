@@ -2,6 +2,8 @@
 
 This starter React project has been generated using AlgoKit. See below for default getting started instructions.
 
+https://ipfs.io/ipfs/QmNyewepmFU4NqzwikfqmBpNF3ak8x8wTQ6EjMWRUbp1vL?filename=student_1.png
+
 # Setup
 
 ### Initial setup
@@ -47,28 +49,27 @@ The project template provides base Github Actions workflows for continuous deplo
 
 **Please note**: when configuring the github repository for the first time. Depending on selected provider you will need to set the provider secrets in the repository settings. Default setup provided by the template allows you to manage the secrets via environment variables and secrets on your github repository.
 
-
 #### Setting up environment variables and secrets for webapp deployment
 
 1. [Create a new environment variable on your repository](https://docs.github.com/en/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository) called `NETLIFY_AUTH_TOKEN` and `NETLIFY_SITE_ID` if you are using Netlify as your cloud provider. Set it to the value of your Netlify auth token respectively. You can find your Netlify auth token by going to [app.netlify.com](https://app.netlify.com/).
 2. If you are using Vercel as your cloud provider, create a new environment variable on your repository called `VERCEL_TOKEN`. Set it to the value of your Vercel auth token. You can find your Vercel auth token by going to [vercel.com/account/tokens](https://vercel.com/account/tokens).
 3. Set up the environment variables. You can refer to the `.env.template` for default values. The variables to be set are:
-    - `VITE_ALGOD_SERVER`
-    - `VITE_ALGOD_NETWORK`
-    - `VITE_INDEXER_SERVER`
-    - `VITE_ENVIRONMENT` - (Set to either `production` or `development`)
-    - `VITE_ALGOD_PORT` - (This is optional if you are using a public gateway like AlgoNode)
-    - `VITE_INDEXER_PORT` - (This is optional if you are using a public gateway like AlgoNode)
+   - `VITE_ALGOD_SERVER`
+   - `VITE_ALGOD_NETWORK`
+   - `VITE_INDEXER_SERVER`
+   - `VITE_ENVIRONMENT` - (Set to either `production` or `development`)
+   - `VITE_ALGOD_PORT` - (This is optional if you are using a public gateway like AlgoNode)
+   - `VITE_INDEXER_PORT` - (This is optional if you are using a public gateway like AlgoNode)
 4. (Optional) If you need to set up environment secrets, you can do so by following the guide [here](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository). The variables for which you can set secrets are (refer to `.env.template` for default values):
-    - `VITE_ALGOD_TOKEN` - (This is optional if you are using a public gateway like AlgoNode)
-    - `VITE_INDEXER_TOKEN` - (This is optional if you are using a public gateway like AlgoNode)
+   - `VITE_ALGOD_TOKEN` - (This is optional if you are using a public gateway like AlgoNode)
+   - `VITE_INDEXER_TOKEN` - (This is optional if you are using a public gateway like AlgoNode)
 
 > If you prefer alternative deployment methods, you can remove the relevant workflow files from the [`.github/workflows`](./.github/workflows) folder and configure your own.
-
 
 # Algorand Wallet integrations
 
 The template comes with [`use-wallet`](https://github.com/txnlab/use-wallet) integration, which provides a React hook for connecting to an Algorand wallet providers. The following wallet providers are included by default:
+
 - LocalNet:
 - - [KMD/Local Wallet](https://github.com/TxnLab/use-wallet#kmd-algorand-key-management-daemon) - Algorand's Key Management Daemon (KMD) is a service that manages Algorand private keys and signs transactions. Works best with AlgoKit LocalNet and allows you to easily test and interact with your dApps locally.
 - TestNet and others:
@@ -94,7 +95,8 @@ This project makes use of React and Tailwind to provider a base project configur
 - [Prettier](https://prettier.io/): Opinionated code formatter
 - [ESLint](https://eslint.org/): Tool for identifying and reporting on patterns in JavaScript
 - Github Actions workflows for build validation
-It has also been configured to have a productive dev experience out of the box in [VS Code](https://code.visualstudio.com/), see the [.vscode](./.vscode) folder.
+  It has also been configured to have a productive dev experience out of the box in [VS Code](https://code.visualstudio.com/), see the [.vscode](./.vscode) folder.
+
 # Integrating with smart contracts and application clients
 
 Refer to the detailed guidance on [integrating with smart contracts and application clients](./src/contracts/README.md). In essence, for any smart contract codebase generated with AlgoKit or other tools that produce compile contracts into ARC34 compliant app specifications, you can use the `algokit generate` command to generate TypeScript or Python typed client. Once generated simply drag and drop the generated client into `./src/contracts` and import it into your React components as you see fit.

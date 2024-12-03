@@ -4,14 +4,16 @@ import { DigitalMarketplaceClient } from './contracts/DigitalMarketplace'
 /**
  * Create the application and opt it into the desired asset
  */
-export function create(
+
+export function createToken(
   algorand: algokit.AlgorandClient,
-  dmClient: DigitalMarketplaceClient,
   sender: string,
-  unitaryPrice: bigint,
   quantity: bigint,
   assetBeingSold: bigint,
-  setAppId: (id: number) => void,
+  event_name: string,
+  asset_name: string,
+  url: string,
+  setAssetId: (id: bigint) => void,
 ) {
   return async () => {
     let assetId = assetBeingSold
@@ -20,11 +22,31 @@ export function create(
       const assetCreate = await algorand.send.assetCreate({
         sender,
         total: quantity,
+        unitName: event_name,
+        assetName: asset_name,
+        url: url,
+        manager: sender,
+        reserve: sender,
+        freeze: sender,
+        clawback: sender,
       })
 
       assetId = BigInt(assetCreate.confirmation.assetIndex!)
+      setAssetId(assetId)
     }
+  }
+}
 
+export function create(
+  algorand: algokit.AlgorandClient,
+  dmClient: DigitalMarketplaceClient,
+  sender: string,
+  unitaryPrice: bigint,
+  quantity: bigint,
+  assetId: bigint,
+  setAppId: (id: number) => void,
+) {
+  return async () => {
     const createResult = await dmClient.create.createApplication({ assetId, unitaryPrice })
 
     const mbrTxn = await algorand.transactions.payment({
@@ -55,6 +77,7 @@ export function buy(
   quantity: bigint,
   unitaryPrice: bigint,
   setUnitsLeft: React.Dispatch<React.SetStateAction<bigint>>,
+  assetId: bigint,
 ) {
   return async () => {
     const buyerTxn = await algorand.transactions.payment({
@@ -63,6 +86,8 @@ export function buy(
       amount: algokit.microAlgos(Number(quantity * unitaryPrice)),
       extraFee: algokit.algos(0.001),
     })
+
+    await algorand.send.assetOptIn({ sender: sender, assetId: assetId })
 
     await dmClient.buy({
       buyerTxn,
