@@ -1,12 +1,20 @@
-# Beginner Python Bootcamp
+# Algorand Ticket Tokenization Demo
 
-Welcome to the Python Bootcamp - Beginner Level. 
+## Overview
+Blockchain-based ticket tokenization project demonstrating asset creation and management on Algorand using Algorand Standard Assets (ASA).
 
-In this content you will learn how to create your complete dapp using Algorand Python: Build the contract, test the contract, build the clients and create the frontend using React.
+## Features
+- Token creation without smart contract deployment
+- Instant finality on token transactions
+- Ticket purchase and transfer functionality using smart contract
 
-## Live Recordings
+## Technical Details
+- ASA token creation
+- Smart contract to purchase ticket
 
-- [Session 1: Building your Marketplace Smart Contract](https://drive.google.com/file/d/1j-DZC7nekqyid1zNYeZHgFCkA4wOfsg3/view?usp=drive_link)
-- [Session 2: Testing the Smart Contract](https://drive.google.com/file/d/1OnyzvkYPblf0s8tiJ_2pQJ7H9MEqR3IZ/view?usp=drive_link)
-- [Session 3: Build methods for the client](https://drive.google.com/file/d/1wsud5nsAagi8gTZWcOY_69Nm_qbsJxZt/view?usp=drive_link)
-- [Session 4: Frontend for our dapp](https://drive.google.com/file/d/14ji7J8ei1SQcjkBVbZ9JUdG-eyGtb4NP/view?usp=drive_link)
+## Prerequisites
+- Algokit2.0 installed on your local machine
+- Subscribe to Algorand Developers youtube channel
+- Algorand transaction model familiarity
+
+
