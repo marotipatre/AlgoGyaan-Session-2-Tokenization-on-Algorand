@@ -12,7 +12,6 @@ export function createToken(
   assetBeingSold: bigint,
   event_name: string,
   asset_name: string,
-  url: string,
   setAssetId: (id: bigint) => void,
 ) {
   return async () => {
@@ -24,7 +23,6 @@ export function createToken(
         total: quantity,
         unitName: event_name,
         assetName: asset_name,
-        url: url,
         manager: sender,
         reserve: sender,
         freeze: sender,
