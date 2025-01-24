@@ -120,15 +120,7 @@ const Home: React.FC<HomeProps> = () => {
                   />
                 </div>
 
-                <div>
-                  <label className="label">IPFS Url</label>
-                  <input
-                    type="text"
-                    className="input input-bordered"
-                    value={ipfs_url}
-                    onChange={(e) => setIpfs_url(e.currentTarget.value || '')}
-                  />
-                </div>
+                
 
                 <div>
                   <label className="label">Quantity</label>
@@ -149,7 +141,6 @@ const Home: React.FC<HomeProps> = () => {
                       assetId,
                       event_name,
                       asset_name,
-                      ipfs_url,
                       setAssetId,
                     )}
                     text="Create Token"
