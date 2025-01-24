@@ -88,13 +88,13 @@ const Home: React.FC<HomeProps> = () => {
 
             <div className="divider" />
 
-            <label className="label">App ID</label>
+{/*             <label className="label">App ID</label>
             <input
               type="number"
               className="input input-bordered m-2"
               value={appId}
               onChange={(e) => setAppId(e.currentTarget.valueAsNumber || 0)}
-            />
+            /> */}
 
             <div className="divider" />
 
@@ -155,7 +155,7 @@ const Home: React.FC<HomeProps> = () => {
                 <input type="text" className="input input-bordered" value={assetId.toString()} readOnly />
               </div>
             )}
-            {appId !== 0 && (
+{/*             {appId !== 0 && (
               <div>
                 <label className="label">Tickets Left</label>
                 <input type="text" className="input input-bordered" value={unitsLeft.toString()} readOnly />
@@ -179,8 +179,8 @@ const Home: React.FC<HomeProps> = () => {
                 />
               </div>
             )}
-
-            {activeAddress && appId !== 0 && unitsLeft !== 0n && activeAddress != seller && (
+ */}
+{/*             {activeAddress && appId !== 0 && unitsLeft !== 0n && activeAddress != seller && (
               <div>
                 <label className="label">Price Per Unit</label>
                 <input type="text" className="input input-bordered" value={(unitaryPrice / BigInt(10e5)).toString()} readOnly />
@@ -190,8 +190,8 @@ const Home: React.FC<HomeProps> = () => {
                   className="input input-bordered"
                   value={quantity.toString()}
                   onChange={(e) => setQuantity(BigInt(e.currentTarget.value || 0))}
-                />
-                <MethodCall
+                /> */}
+{/*                 <MethodCall
                   methodFunction={methods.buy(
                     algorand,
                     dmClient,
@@ -205,18 +205,18 @@ const Home: React.FC<HomeProps> = () => {
                   text={`Buy ${quantity} unit for ${(unitaryPrice * BigInt(quantity)) / BigInt(10e6)} ALGO`}
                 />
               </div>
-            )}
+            )} */}
 
-            {activeAddress !== seller && appId !== 0 && unitsLeft === 0n && (
-              <button className="btn btn-disabled m-2" disabled={true}>
-                SOLD OUT!
-              </button>
-            )}
+          //   {activeAddress !== seller && appId !== 0 && unitsLeft === 0n && (
+          //     <button className="btn btn-disabled m-2" disabled={true}>
+          //       SOLD OUT!
+          //     </button>
+          //   )}
 
-            {activeAddress === seller && appId !== 0 && unitsLeft === 0n && (
-              <MethodCall methodFunction={methods.deleteApp(dmClient, setAppId)} text="Delete App" />
-            )}
-          </div>
+          //   {activeAddress === seller && appId !== 0 && unitsLeft === 0n && (
+          //     <MethodCall methodFunction={methods.deleteApp(dmClient, setAppId)} text="Delete App" />
+          //   )}
+          // </div>
 
           <ConnectWallet openModal={openWalletModal} closeModal={toggleWalletModal} />
         </div>
